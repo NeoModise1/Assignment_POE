@@ -1,0 +1,91 @@
+﻿<Window x:Class="POE_Part2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cybersecurity Awareness Bot" Height="800" Width="1050" Background="White">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <!-- Header -->
+            <RowDefinition Height="*"/>
+            <!-- Conversation + Sidebar -->
+            <RowDefinition Height="Auto"/>
+            <!-- Input -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <!-- Chat -->
+            <ColumnDefinition Width="250"/>
+            <!-- Sidebar -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Header Bar -->
+        <Border Grid.Row="0" Grid.ColumnSpan="2"
+                Background="LightGray"
+                Padding="10"
+                CornerRadius="6"
+                Margin="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ASCII Banner -->
+                <TextBlock Grid.Column="0"
+                           Foreground="DarkOrange"
+                           FontFamily="Consolas"
+                           FontSize="20"
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Center"
+                           Margin="5,0,44,0" Height="43">
+ +-+ +-+ +-+ +-+ +-+ +-+ 
+ | C | y | b | e | r | s | e | c | u | r | i | t | y |
+ |   | A | w | a | r | e | n | e | s | s |   | B | o | t | +-+ +-+ +-+ +-+ +-+ +-+
+
+                </TextBlock>
+
+                <!-- Logo in corner -->
+                <Image
+                       Source="C:\Users\cash\source\repos\POE_Part2\POE_Part2\POE_Part2\394E5372-1CDE-4FD9-AB08-6D629B563CDC.JPG"
+                       Width="154" Height="226"
+                       Stretch="Uniform"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="841,0,0,0" Grid.ColumnSpan="2"/>
+            </Grid>
+        </Border>
+
+        <!-- Conversation Panel -->
+        <ScrollViewer Grid.Row="1" Grid.Column="0" VerticalScrollBarVisibility="Auto" Background="SteelBlue" Margin="5">
+            <StackPanel x:Name="ChatPanel" Margin="10"/>
+        </ScrollViewer>
+
+        <!-- Sidebar -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Background="DarkOrange">
+            <TextBlock Text="🧠 Memory" FontWeight="Bold" Foreground="White" Margin="5"/>
+            <TextBlock x:Name="NameMemory" Text="Name: (not set)" Foreground="LightYellow" Margin="5"/>
+            <TextBlock x:Name="BirthdayMemory" Text="Birthday: (not set)" Foreground="LightYellow" Margin="5"/>
+            <TextBlock x:Name="LocationMemory" Text="Location: (not set)" Foreground="LightYellow" Margin="5"/>
+            <Button Content="Clear Memory" Background="Red" Foreground="White" Click="ClearMemory_Click" Margin="5"/>
+
+            <Separator Margin="5"/>
+            <TextBlock Text="⚡ Quick Topics" FontWeight="Bold" Foreground="White" Margin="5"/>
+            <Button Content="Passwords" Click="QuickTopic_Click" Tag="password" Margin="5"/>
+            <Button Content="Phishing" Click="QuickTopic_Click" Tag="phishing" Margin="5"/>
+            <Button Content="Malware" Click="QuickTopic_Click" Tag="malware" Margin="5"/>
+            <Button Content="VPN" Click="QuickTopic_Click" Tag="vpn" Margin="5"/>
+            <Button Content="2FA" Click="QuickTopic_Click" Tag="2fa" Margin="5"/>
+            <Button Content="Safe Browsing" Click="QuickTopic_Click" Tag="safe browsing" Margin="5"/>
+            <Button Content="Scams" Click="QuickTopic_Click" Tag="scam" Margin="5"/>
+            <Button Content="Privacy" Click="QuickTopic_Click" Tag="privacy" Margin="5"/>
+            <Button Content="Cybersecurity" Click="QuickTopic_Click" Tag="cybersecurity" Margin="5"/>
+        </StackPanel>
+
+        <!-- Input Section -->
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5">
+            <TextBox x:Name="UserInput" Width="700" Height="30" Margin="5" Background="LightGray"/>
+            <Button Content="Send" Width="120" Height="30" Margin="5" Background="Green" Foreground="White" Click="Send_Click"/>
+        </DockPanel>
+    </Grid>
+</Window>
